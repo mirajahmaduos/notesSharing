@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
       ...note.toObject(),
       downloadLink: `/download/${note._id}` // Adjust this URL as needed
     }));
-
+    console.log('notes with download links', notesWithDownloadLinks);
     res.json(notesWithDownloadLinks);
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });

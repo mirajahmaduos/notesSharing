@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.post('/', upload.single('notes-file'), async (req, res) => {
-  const { branch, subject, fileType, description } = req.body;
+  const { branch, subject, fileType, description} = req.body;
 
   try {
     const newNote = new Note({
@@ -26,7 +26,11 @@ router.post('/', upload.single('notes-file'), async (req, res) => {
       fileType,
       description,
     });
-
+//upload file... create url for uploaded file and save into database
+let filePath;
+if(req.file){
+  newNote.filePath = req.protocol+ '://' + req.get('host') + '/uploads/' + req.file.filename;
+}
     await newNote.save();
 
     res.status(201).json({ message: 'File uploaded successfully!' });

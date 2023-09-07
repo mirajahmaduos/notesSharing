@@ -7,7 +7,8 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
-
+//serve files from upload directory
+app.use('/uploads', express.static('uploads'));
 // routers
 app.use('/signup', require('./routes/signup'))
 app.use('/login', require('./routes/login'))
