@@ -25,6 +25,7 @@ app.post('/', async (req, res) => {
       success: true,
       message: 'Login successful',
       token,
+      user: user._id,
       isAdmin: user.isAdmin // Send the isAdmin property
     });
   } catch (error) {

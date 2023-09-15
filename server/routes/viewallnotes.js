@@ -6,7 +6,7 @@ const Note = require('../models/Note'); // Replace with your Note model import
 // Endpoint to get all notes
 router.get('/', async (req, res) => {
   try {
-    const notes = await Note.find();
+    const notes = await Note.find().populate({path:'user', model: 'Users'});
     
     const notesWithDownloadLinks = notes.map(note => ({
       ...note.toObject(),

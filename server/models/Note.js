@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const noteSchema = new mongoose.Schema({
+  user: {type: mongoose.Schema.Types.ObjectId, ref: 'Users'},
   branch: String,
   subject: String,
   fileType: String,
