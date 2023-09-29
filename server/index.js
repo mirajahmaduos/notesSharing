@@ -14,7 +14,8 @@ app.use('/signup', require('./routes/signup'))
 app.use('/login', require('./routes/login'))
 app.use('/upload', require('./routes/upload'))
 app.use('/viewallnotes', require('./routes/viewallnotes'))
-app.use('/pendingnotes', require('./routes/pendingnotes'))
+app.use('/pendingnotes', require('./routes/pendingnotes'));
+app.use('/mynotes', require('./routes/myNotes'));
 //app.use('/status', require('./routes/status'))
 
 app.listen(5000, () => {
